@@ -1,4 +1,4 @@
-##Kafka Streams Demo
+## Kafka Streams Demo
 Demo使用的是 Kafka 1.0.1 版本的API
 
 包括高级 Streams DSL 和底层处理 Processor API
