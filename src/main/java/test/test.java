@@ -1,27 +1,53 @@
 package test;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Properties;
 
 public class test {
-    public static void main(String[] args) throws ParseException {
-//        SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static void main(String[] args) throws Exception {
 
-//        Date date = fmt.parse("2018-01-01 10:20:20");
-//        System.out.println(date.getTime()/1000);
+//       testTimestamp();
 
-        //            {
-//                'id':'45147755',
-//                    'answer':'3876',
-//                    'coment':'45',
-//                    'view':'7821408',
-//                    'follower':'12435',
-//                    'last_answer':'3878',
-//                    'last_coment':'45',
-//                    'last_follower':'12440',
-//                    'last_view':'7832938'
-//            }
+
+         new test().testProp();
+
+    }
+
+    void testProp() throws IOException {
+        Properties properties = new Properties();
+        properties.load(getClass().getClassLoader().getResourceAsStream("log4j.properties"));
+
+        System.out.println(properties.get("log4j.rootLogger"));
+    }
+
+    static void testTimestamp() throws ParseException {
+        SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        Date date = fmt.parse("2018-01-01 10:20:20");
+        System.out.println(date.getTime()/1000);
+        System.out.println(date.getTime());
+
+
+    }
+    /**
+     * 测试算法
+     */
+    static void testScore(){
+//        {
+//            'id':'45147755',
+//                'answer':'3876',
+//                'coment':'45',
+//                'view':'7821408',
+//                'follower':'12435',
+//                'last_answer':'3878',
+//                'last_coment':'45',
+//                'last_follower':'12440',
+//                'last_view':'7832938'
+//        }
+
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String id = "45147755";
         String createTime = "2016-05-01 20:10:22";
@@ -55,9 +81,7 @@ public class test {
         }
 
         double sumScore =  score_base * score_accelerationScore / score_denominator;
-        
+
         System.out.println(sumScore);
-
-
     }
 }
